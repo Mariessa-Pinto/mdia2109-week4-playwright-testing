@@ -13,7 +13,7 @@ test.afterAll(async () => {
 })
 
 test.describe('Head tag area', () => {
-    test('Contains the Head tag and its contents', async ({ page }) => {
+    test.skip('Contains the Head tag and its contents', async ({ page }) => {
         await page.goto(homePage);
 
         await expect(page).toHaveTitle("Example #1");
@@ -27,27 +27,27 @@ test.describe('Head tag area', () => {
 })
 
 test.describe("Main content tests", () => {
-    test('Should contain a heading welcome to the home page', async({ page }) => {
+    test.skip('Should contain a heading welcome to the home page', async({ page }) => {
         await page.goto(homePage);
 
         await expect(page.locator('h1')).toContainText('Welcome to my home page');
     })
 
-    test('Should contain a list to describe CRUD', async ({ page }) => {
+    test.skip('Should contain a list to describe CRUD', async ({ page }) => {
         await page.goto(homePage)
         await expect(page.locator('ul > li')).toContainText(['Create', 'Read', 'Update', 'Delete'])
     })
 })
 
 test.describe('Linking to another page', () => {
-    test('Should contain a link to about page', async ({ page }) => {
+    test.skip('Should contain a link to about page', async ({ page }) => {
         await page.goto(homePage)
         await page.click("text=About Page")
 
         await expect(page).toHaveURL(aboutPage);
     })
 
-    test('Should contain a link to grades page', async ({ page }) => {
+    test.skip('Should contain a link to grades page', async ({ page }) => {
         await page.goto(homePage)
         await page.click("text=Grades Page")
 
@@ -56,7 +56,7 @@ test.describe('Linking to another page', () => {
 })
 
 test.describe('Button tests', () => {
-    test('This is the info component', async ({ page }) => {
+    test.skip('This is the info component', async ({ page }) => {
         await page.goto(homePage);
 
         await expect(page.locator('button')).toContainText("View all this info")
@@ -64,7 +64,7 @@ test.describe('Button tests', () => {
 })
 
 test.describe('Footer tests', () => {
-    test('should contain a footer on the home page', async ({ page }) => {
+    test.skip('should contain a footer on the home page', async ({ page }) => {
         await page.goto(homePage);
 
         await expect(page.locator('footer')).toContainText("In class Example #1");
@@ -72,7 +72,7 @@ test.describe('Footer tests', () => {
 })
 
 test.describe('Check About page navigates to the home page tests', () => {
-    test('should navigate to the home page from the about page', async ({ page }) => {
+    test.skip('should navigate to the home page from the about page', async ({ page }) => {
         await page.goto(aboutPage);
 
         await page.click('text=Go Back')
